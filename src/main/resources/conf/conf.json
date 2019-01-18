@@ -1,0 +1,7 @@
+{
+  "http.port" : 8888,
+  "verticles" : [
+    "com.shadow.study.web.verticle.BookVerticle",
+    "com.shadow.study.web.verticle.UserVerticle"
+  ]
+}

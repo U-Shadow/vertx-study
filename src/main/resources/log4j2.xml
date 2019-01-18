@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="log-pattern">%d{yyyy-MM-dd HH:mm:ss} |- %highlight{%5p}{TRACE=blue, DEBUG=green, INFO=green,
+            WARN=yellow, ERROR=red, FATAL=red} in %style{%C{1}:%L}{cyan} [%style{%t}{magenta}] - %m%n
+        </Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${log-pattern}"/>
+        </Console>
+        <RollingRandomAccessFile name="FILE" fileName="logs/app.log" append="true"
+                                 filePattern="logs/%d{yyyyMMdd}/lsp_app.log.%d{yyyyMMdd_HH_mm}">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} |- %highlight{%5p}{TRACE=blue, DEBUG=green, INFO=green, WARN=yellow,
+                    ERROR=red, FATAL=red} in %style{%C{1}:%L}{cyan} [%style{%t}{magenta}] - %m%n
+                </Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <AsyncLogger name="com.shadow.study" level="DEBUG" additivity="false" includeLocation="true">
+            <AppenderRef ref="Console"/>
+            <appender-ref ref="FILE"/>
+        </AsyncLogger>
+
+        <Root level="WARN">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

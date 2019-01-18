@@ -1,0 +1,18 @@
+{
+  "default": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "vertxdb",
+    "username": "root",
+    "password": "root",
+    "maxPollSize": 10
+  },
+  "prod": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "vertxdb",
+    "username": "root",
+    "password": "root",
+    "maxPollSize": 10
+  }
+}
